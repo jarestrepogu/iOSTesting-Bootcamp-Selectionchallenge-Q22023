@@ -14,7 +14,7 @@ class ImageCell: UICollectionViewCell {
         imageView.image = nil
     }
     
-    func display(_ image: UIImage?) {
-        imageView.image = image
+    func display(from url: String) {
+        imageView.fetchImageFromURL(urlString: url)
     }
 }

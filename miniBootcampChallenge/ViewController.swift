@@ -15,7 +15,7 @@ class ViewController: UICollectionViewController {
         static var cellSize: CGFloat?
     }
     
-    private lazy var urls: [URL] = URLProvider.urls
+    private lazy var urls: [String] = URLProvider.urls
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +41,7 @@ extension ViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath) as? ImageCell else { return UICollectionViewCell() }
         
         let url = urls[indexPath.row]
-        let data = try? Data(contentsOf: url)
-        let image = UIImage(data: data!)
-        cell.display(image)
+        cell.display(from: url)
         
         return cell
     }
